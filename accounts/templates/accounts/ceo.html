@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+<h2>Here is the CEO's part</h2>
+
+{% block content %}
+
+<ul>
+    {% for ceo in ceos %}
+        <li>{{ ceo.name }} - {{ ceo.locality }}</li>
+    {% empty %}
+        <li>No users found.</li>
+    {% endfor %}
+    {% endblock %}
+
+</ul>

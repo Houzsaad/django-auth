@@ -1,0 +1,9 @@
+<h1> See your members here </h1>
+<ul>
+    {% for memmber in memmber %}
+        <li>{{ memmber.id }} - {{ memmber.name }} - {{ memmber.nationality }}</li>
+
+    {% empty %}
+        <li>No members found.</li>
+    {% endfor %}
+</ul>

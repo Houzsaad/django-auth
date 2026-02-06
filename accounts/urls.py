@@ -1,6 +1,7 @@
+#from turtle import update
 from django.urls import path
 
-from .views import user_list, memmber, ceo, profile, login_view, logout_view, register_view
+from .views import user_list, memmber, profile, login_view, logout_view, register_view, ceo, add, delete, update
 
 from django.contrib.auth import views as auth_views
 
@@ -13,4 +14,7 @@ urlpatterns = [
     path('user_list/', user_list, name='user_list'),
     path('memmber/', memmber, name='memmber'),
     path('ceo/', ceo, name='ceo'),
+    path('add/', add, name='add'),
+    path('delete/<int:pk>/', delete, name='delete'),
+    path('update/<int:pk>/', update, name='update'),
 ]

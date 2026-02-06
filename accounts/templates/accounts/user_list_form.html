@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    {% for user in users %}
+
+    {{ user.id }} -- {{ user.username }}
+
+    <form method="POST" action="add-form.html">
+        {% csrf_token %}
+        {{form}}
+        <input type="execcute" value="Execcute"/>
+    </form>
+    {% endfor %}
+</div>
+
+{% endblock content %}

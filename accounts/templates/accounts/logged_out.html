@@ -1,0 +1,6 @@
+<h2>Logout Arena</h2>
+<form method="post" action="{% url 'logout' %}">
+{% csrf_token %} 
+
+<p>You have been successfully logged out.</p>
+</form>

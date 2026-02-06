@@ -1,8 +1,11 @@
-<h2>Uss List</h2>
+<h2>User List</h2>
 <ul>
-    {% for user in users %}
-        <li>{{ user.id }} - {{ user.price }}</li>
-    {% empty %}
-        <li>No users found.</li>
+
+        <a href="{% url 'add' %}">add</a>
+        {% for user in users %} 
+        <li>{{ user.id }} -- {{ user.username }}</li>
+        
+        {% empty %}
+
     {% endfor %}
 </ul>

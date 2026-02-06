@@ -1,11 +1,13 @@
 from django.urls import path
-from .views import home, items_list, love, life
+from . views import home,create_item, items_list, love
 
 urlpatterns = [
     path('', home, name='home'),
-    path('items/<int:id/', items_list, name= 'items_list'),
-
+    
     path('love/', love, name='love'),
     
-    path('life/', life, name='life'),
+    path('items/', items_list, name='items_list'),
+
+    path('create_item/', create_item, name='create_item'),
+
 ]

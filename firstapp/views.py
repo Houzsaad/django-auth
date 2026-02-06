@@ -1,22 +1,30 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+
+from .forms import ItemForm
+
 from .models import Item
+
+# Create your views here.
+
+def create_item(request):
+    if request.method == 'POST':
+        form = ItemForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'firstapp/success.html')
+    else:
+        form = ItemForm()
+    return render(request, 'firstapp/create_item.html', {'form': form})     
+
+def items_list(request):
+    
+    items = Item.objects.all()
+    return render(request, 'firstapp/items_list.html', {'items': items})
 
 
 def home(request):
-    return render(request, 'home.html')
+
+    return render(request, 'firstapp/home.html')
 
 def love(request):
-    return render(request, 'love.html')
-
-def life(request):
-    return render(request, 'life.html')
-
-def items_list(request):
-    items = [
-        {'name': 'Item 1', 'description': 'Description of Item 1'},
-        {'name': 'Item 2', 'description': 'Description of Item 2'},
-        {'name': 'Item 3', 'description': 'Description of Item 3'},
-    ]
-    return render(request, 'items.html', {'items': items})
-    
+    return render(request, 'firstapp/love.html')

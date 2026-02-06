@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
-
+{% block content %}
 <h2>Here is the CEO's part</h2>
 
-{% block content %}
-
 <ul>
+    
     {% for ceo in ceos %}
-        <li>{{ ceo.name }} - {{ ceo.locality }}</li>
+    
+    <a href="{% url 'add' %}">Add" </a>
+    <p>{{ ceo.name }} -- {{ ceo.locality }} -- <a href="{% url 'update' ceo.id %}">Update</a> </p>
+    <a href="{% url 'delete' ceo.id %}">Delete</a>
     {% empty %}
+    
+    <input type="submit", value="Submit"/>
         <li>No users found.</li>
-    {% endfor %}
-    {% endblock %}
 
+    {% endfor %}
+{% endblock content %}
 </ul>

@@ -13,13 +13,16 @@ class TodoViewSet(ModelViewSet):
 
 class TodoViewSet(viewsets.ModelViewSet):
 #def get_queryset(self):
-    #return Todo.objects.filter(user=self.request.user)
     queryset = Todo.objects.all()
-    
-
     serializer_class = TodoSerializer
     permission_classes = [permissions.IsAuthenticated]
+
     def get_queryset(self):
         return Todo.objects.filter(user=self.request.user)
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+    def get_serializer_context(self):
+        return {"request": self.request}
+
+    

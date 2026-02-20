@@ -1,3 +1,7 @@
+from rest_framework import generics
+from django.contrib.auth.models import User
+from .serializer import RegisterSerializer
+
 #from django.shortcuts import render
 from rest_framework import viewsets, permissions
 from .models import Todo
@@ -24,5 +28,9 @@ class TodoViewSet(viewsets.ModelViewSet):
 
     def get_serializer_context(self):
         return {"request": self.request}
+    
 
+class RegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
     

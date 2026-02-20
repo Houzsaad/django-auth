@@ -11,6 +11,15 @@ class Todo(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+#class User(models.Model):
+    #username = models.CharField(max_length=100)
+    #gmail = models.EmailField(unique=True)
+    #description = models.TextField()
+    
+    #def __str__(self):
+     #   return self.username
 # Create your models here.
 
 
